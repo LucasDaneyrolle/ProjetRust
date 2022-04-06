@@ -94,3 +94,58 @@ impl Graph {
     return self.nodes[x].calculWeight;
   }
 }
+
+
+#[cfg(test)]
+mod test {
+use crate::Graph;
+    //test si on peut bien relier les points A et B
+    #[test]
+    fn test_linkPoints_AB() {
+        assert_eq!(
+          Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("A"), String::from("B"), 4),
+          true,
+        )
+    }
+
+    //test si on peut bien relier les points B et C
+    #[test]
+    fn test_linkPoints_BC() {
+      assert_eq!(
+        Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("B"), String::from("C"), 3),
+        true,
+      )
+    }
+
+    //test si on peut bien relier les points C et F
+    #[test]
+    fn test_linkPoints_CF() {
+      assert_eq!(
+        Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("C"), String::from("F"), 1),
+        true,
+      )
+    }
+
+    //On vérifie que le test échoue (qu'on mettre True ou False) puisque le point G n'existe pas
+    #[test]
+    #[should_panic]
+    fn test_linkPoints_FG() {
+      assert_eq!(
+        Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("F"), String::from("G"), 3),
+        false,
+      )
+    }
+
+    //On vérifie que le test échoue (qu'on mettre True ou False) puisqu'un point de -1 est impossible
+    #[test]
+    #[should_panic]
+    fn test_linkPoints_val() {
+      assert_eq!(
+        Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("C"), String::from("F"), --1),
+        false,
+      )
+    }
+
+
+    
+}
