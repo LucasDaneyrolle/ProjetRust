@@ -5,13 +5,13 @@ pub struct NodeLink { // CHEMIN
 }
 
 pub struct Node { // NOEUD
-  name_id: String,
+  pub name_id: String,
   links: Vec<NodeLink>,
   calculWeight: i32,
 }
 
 pub struct Graph {
-  nodes: Vec<Node>,
+  pub nodes: Vec<Node>,
 }
 
 impl Graph {
