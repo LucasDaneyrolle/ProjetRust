@@ -22,22 +22,13 @@ fn main() {
     io::stdin().read_line(&mut input_string).expect("Failed to read line");
     print!("\n");
     match input_string.as_str().trim().parse::<i32>() {
-<<<<<<< HEAD
-      Ok(1) => addPoint(&mut mainGraph),
-      Ok(2) => println!("{:?}", selectPointIndex(&mut mainGraph)),
-      Ok(3) => println!("QSDSD!"),
-      Ok(4) => finished = true,
-      Ok(_) => println!("Mauvaise entrée !"),
-      Err(..) => println!("Mauvaise entrée !"),
-=======
       Ok(1) => add_point(&mut main_graph),
       Ok(2) => add_link(&mut main_graph),
       Ok(3) => main_graph.show(),
       Ok(4) => process_dijkstra(&mut main_graph),
       Ok(5) => finished = true,
-      Ok(_) => println!("Mauvais entrée !"),
-      Err(..) => println!("Mauvais entrée !"),
->>>>>>> 054455aff9f759161014ffcc8ef6d33d4993a058
+      Ok(_) => println!("Mauvaise entrée !"),
+      Err(..) => println!("Mauvaise entrée !"),
     }
     print!("\n");
   }

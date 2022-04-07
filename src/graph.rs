@@ -144,12 +144,4 @@ use crate::Graph;
         true,
       )
     }
-
-    #[test]
-    fn test_dijkstra() {
-      assert_eq!(
-        Graph::dijkstra(&mut Graph { nodes: Vec::new() }, String::from("C"), String::from("F")),
-        0,
-      )
-    }
 }
