@@ -4,6 +4,7 @@ pub struct NodeLink { // CHEMIN
   weigth: i32
 }
 
+
 pub struct Node { // NOEUD
   pub name_id: String,
   links: Vec<NodeLink>,
@@ -30,8 +31,17 @@ impl Graph {
     }
   }
 
-  pub fn addPoint(&mut self, name_id: String) {
-    self.nodes.push(Node { name_id, links: Vec::new(), calculWeight: i32::MAX })
+  pub fn addPoint(&mut self, name_id: String) -> bool {
+    let mut i = 0;
+    let mut i_found = false;
+    while i < self.nodes.len() && !i_found { 
+      if self.nodes[i].name_id == name_id { // DEJA EXISTANT
+        return false;    
+      }
+      i += 1;
+    }
+    self.nodes.push(Node { name_id, links: Vec::new(), calculWeight: i32::MAX });
+    return true;
   }
 
   pub fn linkPoints(&mut self, name_id: String, to_name_id: String, weight: i32) -> bool {
