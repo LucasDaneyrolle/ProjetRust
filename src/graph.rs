@@ -130,7 +130,7 @@ use crate::Graph;
     #[test]
     fn test_linkPoints_val() {
       assert_eq!(
-        Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("C"), String::from("F"), -1),
+        Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("C"), String::from("D"), -1),
         true,
       )
     }

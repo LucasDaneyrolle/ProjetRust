@@ -24,8 +24,8 @@ fn main() {
       Ok(2) => println!("{:?}", selectPointIndex(&mut mainGraph)),
       Ok(3) => println!("QSDSD!"),
       Ok(4) => finished = true,
-      Ok(_) => println!("Mauvais entrée !"),
-      Err(..) => println!("Mauvais entrée !"),
+      Ok(_) => println!("Mauvaise entrée !"),
+      Err(..) => println!("Mauvaise entrée !"),
     }
     print!("\n");
   }
