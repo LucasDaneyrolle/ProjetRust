@@ -126,26 +126,20 @@ use crate::Graph;
       )
     }
 
-    //On vérifie que le test échoue (qu'on mettre True ou False) puisque le point G n'existe pas
+    //test si un poids négatif est possible (c'est possible)
     #[test]
-    #[should_panic]
-    fn test_linkPoints_FG() {
-      assert_eq!(
-        Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("F"), String::from("G"), 3),
-        false,
-      )
-    }
-
-    //On vérifie que le test échoue (qu'on mettre True ou False) puisqu'un point de -1 est impossible
-    #[test]
-    #[should_panic]
     fn test_linkPoints_val() {
       assert_eq!(
-        Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("C"), String::from("F"), --1),
-        false,
+        Graph::linkPoints(&mut Graph { nodes: Vec::new() }, String::from("C"), String::from("F"), -1),
+        true,
       )
     }
 
-
-    
+    #[test]
+    fn test_dijkstra() {
+      assert_eq!(
+        Graph::dijkstra(&mut Graph { nodes: Vec::new() }, String::from("C"), String::from("F")),
+        0,
+      )
+    }
 }
